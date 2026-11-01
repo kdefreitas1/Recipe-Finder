@@ -8,7 +8,7 @@ My original problem was that using recipe websites are very annoying. They often
 
 ## How It Works
 
-![System diagram](System Diagram.jpg)
+![System diagram](https://github.com/user-attachments/assets/821ee1cb-e42c-4f34-9afc-e254f1195cd7)
 
 ## Tech Stack
 - Language: JavaScript
