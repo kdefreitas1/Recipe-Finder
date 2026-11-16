@@ -16,5 +16,6 @@
   "bugs": {
     "url": "https://github.com/kdefreitas1/Recipe-Finder/issues"
   },
-  "homepage": "https://github.com/kdefreitas1/Recipe-Finder#readme"
+  "homepage": "https://github.com/kdefreitas1/Recipe-Finder#readme",
+  "type": "module"
 }
