@@ -22,10 +22,8 @@ My original problem was that using recipe websites are very annoying. They often
 - Will be completed after program is finished
 
 ## Roadmap
-- Create basic website
-- Add current program as main function as the website
-- Make website look good
-- Add more to README.md
+- [ ] Create function to get a random meal
+- [ ] Create a basic website and add program functionality to it
 
 ## Author
 Kamalani DeFreitas
