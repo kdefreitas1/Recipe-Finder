@@ -9,4 +9,16 @@ async function getMeal() {
     rl.close();
 }
 
-getMeal();
+async function fetchMeal() {
+    try {
+        await getMeal();
+        const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data.meals);
+    } catch (error) {
+        console.error(error);
+    }   
+}
+
+await fetchMeal();
