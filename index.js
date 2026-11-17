@@ -15,7 +15,13 @@ async function fetchMeal() {
         const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`;
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data.meals);
+
+        // If meal in url is invalid API returns null
+        if (data.meals == null) {
+            return false;
+        }
+
+        return data;
     } catch (error) {
         console.error(error);
     }   
@@ -31,12 +37,17 @@ async function main() {
         answer = await rl.question("Would you like to search for a recipe?  ");
     }   
 
+    rl.close();
+
     if (answer == "n") {
-        rl.close();
         return;
     }
 
-    rl.close();
+    let data = await fetchMeal();
+    while (data == false) {
+        console.log("That meal is not available. Please try again.");
+        data = await fetchMeal();
+    }
 }
 
 await main();
