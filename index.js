@@ -5,8 +5,7 @@ let meal = "";
 
 async function getMeal() {
     const rl = readline.createInterface({input, output});
-    const answer = await rl.question("Input Meal: ");
-    console.log(`Output: ${answer}`);
+    meal = await rl.question("Input Meal: ");
     rl.close();
 }
 
