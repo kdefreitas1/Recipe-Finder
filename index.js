@@ -16,7 +16,6 @@ async function fetchMeal() {
         const response = await fetch(url);
         const data = await response.json();
 
-        // If meal in url is invalid API returns null
         if (data.meals == null) {
             return false;
         }
