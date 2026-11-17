@@ -21,4 +21,22 @@ async function fetchMeal() {
     }   
 }
 
-await fetchMeal();
+async function main() {
+    console.log("Welcome to Recipe Finder");
+    const rl = readline.createInterface({input, output});
+    let answer = await rl.question("Would you like to search for a recipe? (y/n) ");
+
+    while (answer != "y" && answer != "n") {
+        console.log("That is not a valid option please try again.");
+        answer = await rl.question("Would you like to search for a recipe?  ");
+    }   
+
+    if (answer == "n") {
+        rl.close();
+        return;
+    }
+
+    rl.close();
+}
+
+await main();
