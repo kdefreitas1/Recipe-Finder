@@ -26,6 +26,13 @@ async function fetchMeal() {
     }   
 }
 
+function displayMeal(data) {
+    data.meals.forEach(e => {
+        console.log(e.strMeal);
+        console.log(e.strInstructions);
+    });
+}
+
 async function main() {
     console.log("Welcome to Recipe Finder");
     const rl = readline.createInterface({input, output});
@@ -43,10 +50,13 @@ async function main() {
     }
 
     let data = await fetchMeal();
+
     while (data == false) {
         console.log("That meal is not available. Please try again.");
         data = await fetchMeal();
     }
+
+    displayMeal(data);
 }
 
 await main();
