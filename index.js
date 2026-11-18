@@ -37,7 +37,10 @@ function displayMeal(data) {
             }
             console.log(`${measure} ${ingredient}`);
         }
-        console.log(`\n${meal.strInstructions}`);
+        console.log();
+        meal.strInstructions.split(".").forEach(instruction => {
+            console.log(`\n${instruction}`);
+        });
     });
 }
 
