@@ -27,17 +27,17 @@ async function fetchMeal() {
 }
 
 function displayMeal(data) {
-    data.meals.forEach(e => {
-        console.log(`${e.strMeal}\n`);
+    data.meals.forEach(meal => {
+        console.log(`${meal.strMeal}\n`);
         for (let i = 1; i <= 20; i++) {
-            let ingredient = e[`strIngredient${i}`];
-            let measure = e[`strMeasure${i}`];
+            let ingredient = meal[`strIngredient${i}`];
+            let measure = meal[`strMeasure${i}`];
             if (ingredient == "" || ingredient == null) {
                 break;
             }
             console.log(`${measure} ${ingredient}`);
         }
-        console.log(`\n${e.strInstructions}`);
+        console.log(`\n${meal.strInstructions}`);
     });
 }
 
