@@ -31,6 +31,12 @@ function displayMeal(data) {
         console.log("\n----------------\n");
 
         console.log(`${meal.strMeal}\n`);
+
+        console.log(`From ${meal.strCountry}`);
+
+        console.log(`This is a ${meal.strCategory} dish\n`);
+        
+        console.log("Ingredients:\n");
         for (let i = 1; i <= 20; i++) {
             let ingredient = meal[`strIngredient${i}`];
             let measure = meal[`strMeasure${i}`];
@@ -41,17 +47,18 @@ function displayMeal(data) {
         }
         console.log();
 
+        console.log("Instructions:\n");
         let length = meal.strInstructions.split(".").length;
         let i = 0;
         meal.strInstructions.split(".").forEach(instruction => {
             i++;
-            if (i == length) {
+            if (i == length || i == 1) {
                 console.log(`${instruction}`);
             } else {
                 console.log(`\n${instruction}`);
             }
         });
-        
+
         console.log("----------------");
     });
 }
