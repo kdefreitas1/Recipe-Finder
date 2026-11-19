@@ -1,17 +1,8 @@
 import readline from "node:readline/promises";
 import {stdin as input, stdout as output} from "node:process";
 
-let meal = "";
-
-async function getMeal() {
-    const rl = readline.createInterface({input, output});
-    meal = await rl.question("Input Meal: ");
-    rl.close();
-}
-
-async function fetchMeal() {
+async function fetchMeal(meal) {
     try {
-        await getMeal();
         const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`;
         const response = await fetch(url);
         const data = await response.json();
@@ -68,25 +59,31 @@ async function main() {
     const rl = readline.createInterface({input, output});
     let answer = await rl.question("Would you like to search for a recipe? (y/n) ");
 
-    while (answer != "y" && answer != "n") {
-        console.log("That is not a valid option please try again.");
-        answer = await rl.question("Would you like to search for a recipe?  ");
-    }   
+    while (true) {
+        while (answer != "y" && answer != "n") {
+            console.log("That is not a valid option please try again.");
+            answer = await rl.question("Would you like to search for a recipe? (y/n) ");
+        }   
 
+        if (answer == "n") {
+            break;
+        }
+
+        let meal = await rl.question("Input Meal: ");
+
+        let data = await fetchMeal(meal);
+
+        while (data == false) {
+            console.log("That meal is not available. Please try again.");
+            meal = await rl.question("Input Meal: ");
+            data = await fetchMeal(meal);
+        }
+
+        displayMeal(data);
+        break;
+    }
+        
     rl.close();
-
-    if (answer == "n") {
-        return;
-    }
-
-    let data = await fetchMeal();
-
-    while (data == false) {
-        console.log("That meal is not available. Please try again.");
-        data = await fetchMeal();
-    }
-
-    displayMeal(data);
 }
 
 await main();
