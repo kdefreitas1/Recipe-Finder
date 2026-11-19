@@ -28,6 +28,8 @@ async function fetchMeal() {
 
 function displayMeal(data) {
     data.meals.forEach(meal => {
+        console.log("\n----------------\n");
+
         console.log(`${meal.strMeal}\n`);
         for (let i = 1; i <= 20; i++) {
             let ingredient = meal[`strIngredient${i}`];
@@ -38,9 +40,19 @@ function displayMeal(data) {
             console.log(`${measure} ${ingredient}`);
         }
         console.log();
+
+        let length = meal.strInstructions.split(".").length;
+        let i = 0;
         meal.strInstructions.split(".").forEach(instruction => {
-            console.log(`\n${instruction}`);
+            i++;
+            if (i == length) {
+                console.log(`${instruction}`);
+            } else {
+                console.log(`\n${instruction}`);
+            }
         });
+        
+        console.log("----------------");
     });
 }
 
