@@ -54,6 +54,17 @@ function displayMeal(data) {
     });
 }
 
+async function getRandomMealAndDisplay() {
+    try {
+        const url = "https://www.themealdb.com/api/json/v1/1/random.php";
+        const response = await fetch(url);
+        const data = await response.json();
+        displayMeal(data);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 async function main() {
     console.log("Welcome to Recipe Finder");
     const rl = readline.createInterface({input, output});
@@ -74,13 +85,20 @@ async function main() {
             break;
         }
 
-        let meal = await rl.question("Input Meal: ");
+        let meal = await rl.question(`Input Meal (type "r" to get a random meal): `);
+
+        if (meal.toLowerCase() == "r") {
+            await getRandomMealAndDisplay();
+            looped = true;
+            answer = await rl.question("\nWould you like to search for another recipe? (y/n) ");
+            continue;
+        }
 
         let data = await fetchMeal(meal);
 
         while (data == false) {
             console.log("\nThat meal is not available. Please try again.");
-            meal = await rl.question("Input Meal: ");
+            meal = await rl.question(`Input Meal (type "r" to get a random meal): `);
             data = await fetchMeal(meal);
         }
 
