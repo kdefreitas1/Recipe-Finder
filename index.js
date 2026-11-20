@@ -58,11 +58,16 @@ async function main() {
     console.log("Welcome to Recipe Finder");
     const rl = readline.createInterface({input, output});
     let answer = await rl.question("Would you like to search for a recipe? (y/n) ");
+    let looped = false;
 
     while (true) {
-        while (answer != "y" && answer != "n") {
+        while (answer.toLowerCase() != "y" && answer.toLowerCase() != "n") {
             console.log("That is not a valid option please try again.");
-            answer = await rl.question("Would you like to search for a recipe? (y/n) ");
+            if (looped) {
+                answer = await rl.question("\nWould you like to search for another recipe? (y/n) ");
+            } else {
+                answer = await rl.question("\nWould you like to search for a recipe? (y/n) ");
+            }
         }   
 
         if (answer == "n") {
@@ -74,13 +79,14 @@ async function main() {
         let data = await fetchMeal(meal);
 
         while (data == false) {
-            console.log("That meal is not available. Please try again.");
+            console.log("\nThat meal is not available. Please try again.");
             meal = await rl.question("Input Meal: ");
             data = await fetchMeal(meal);
         }
 
         displayMeal(data);
-        break;
+        looped = true;
+        answer = await rl.question("\nWould you like to search for another recipe? (y/n) ");
     }
         
     rl.close();
