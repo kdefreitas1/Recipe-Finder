@@ -54,6 +54,10 @@ function displayMeal(data) {
     });
 }
 
+async function getRandomMeal() {
+
+}
+
 async function main() {
     console.log("Welcome to Recipe Finder");
     const rl = readline.createInterface({input, output});
@@ -74,7 +78,12 @@ async function main() {
             break;
         }
 
-        let meal = await rl.question("Input Meal: ");
+        let meal = await rl.question(`Input Meal (type "r" to get a random meal): `);
+
+        if (meal.toLowerCase() == "r") {
+            getRandomMeal();
+            continue;
+        }
 
         let data = await fetchMeal(meal);
 
