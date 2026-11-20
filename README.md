@@ -22,7 +22,7 @@ My original problem was that using recipe websites are very annoying. They often
 - Will be completed after program is finished
 
 ## Roadmap
-- [ ] Create function to get a random meal
+- [x] Create function to get a random meal
 - [ ] Create a basic website and add program functionality to it
 
 ## Author
