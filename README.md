@@ -16,7 +16,20 @@ My original problem was that using recipe websites are very annoying. They often
 - APIs: TheMealDB
 
 ## Setup
-- Will be completed after program is finished 
+### Prerequisites
+- Node.js (v18 or higher)
+### 1. Clone the repository:
+```
+git clone https://github.com/kdefreitas1/Recipe-Finder.git
+```
+### 2. Change to project directory
+```
+cd Recipe-Finder
+```
+### 3. Run the program
+```
+node index.js
+```
 
 ## Usage
 - Will be completed after program is finished
