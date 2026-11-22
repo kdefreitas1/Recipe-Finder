@@ -66,7 +66,7 @@ async function getRandomMealAndDisplay() {
 }
 
 async function main() {
-    console.log("Welcome to Recipe Finder");
+    console.log("\nWelcome to Recipe Finder\n");
     const rl = readline.createInterface({input, output});
     let answer = await rl.question("Would you like to search for a recipe? (y/n) ");
     let looped = false;
