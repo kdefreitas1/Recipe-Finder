@@ -31,6 +31,40 @@ cd Recipe-Finder
 node index.js
 ```
 ### Example of a running program
+```console
+$ node index.js
+
+Welcome to Recipe Finder
+
+Would you like to search for a recipe (y/n) y
+Input Meal (type "r" to get a random meal): Arrabiata
+
+----------------
+
+Spicy Arrabiata Penne
+
+From Italy
+This is a Vegetarian dish
+
+Ingredients:
+
+1 pound penne rigate
+1/4 cup olive oil
+3 cloves garlic
+...
+
+Instructions:
+
+Bring a large pot of water to a boil...
+
+In a large skillet...
+
+...
+
+----------------
+
+Would you like to search for another recipe? (y/n) n
+```
 
 ## Roadmap
 - [x] Create function to get a random meal
