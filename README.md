@@ -15,24 +15,22 @@ My original problem was that using recipe websites are very annoying. They often
 - Tools: Node.js
 - APIs: TheMealDB
 
-## Setup
+## Setup and Usage
 ### Prerequisites
 - Node.js (v18 or higher)
 ### 1. Clone the repository:
-```
+```bash
 git clone https://github.com/kdefreitas1/Recipe-Finder.git
 ```
 ### 2. Change to project directory
-```
+```bash
 cd Recipe-Finder
 ```
 ### 3. Run the program
-```
+```bash
 node index.js
 ```
-
-## Usage
-- Will be completed after program is finished
+### Example of a running program
 
 ## Roadmap
 - [x] Create function to get a random meal
