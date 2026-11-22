@@ -95,11 +95,23 @@ async function main() {
         }
 
         let data = await fetchMeal(meal);
+        let isRandom = false;
 
         while (data == false) {
             console.log("\nThat meal is not available. Please try again.");
             meal = await rl.question(`Input Meal (type "r" to get a random meal): `);
+            if (meal.toLowerCase() == "r") {
+                await getRandomMealAndDisplay();
+                looped = true;
+                isRandom = true;
+                break;
+            }
             data = await fetchMeal(meal);
+        }
+
+        if (isRandom) {
+            answer = await rl.question("\nWould you like to search for another recipe? (y/n) ");
+            continue;
         }
 
         displayMeal(data);
