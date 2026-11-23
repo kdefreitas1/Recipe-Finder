@@ -8,6 +8,8 @@ My original problem was that using recipe websites are very annoying. They often
 
 ## How It Works
 
+Recipe Finder is a console program that gives the user recipes they want as fast and simple as possible. It first asks the user wants to search for a recipe and checks the response given. Then it asks for what recipe/meal they want to search for, validates the input, and then displays it nicely for them. This cycle then repeats until the user no longer wants to search for a recipe.
+
 ![System diagram](https://github.com/user-attachments/assets/da6617a1-1041-49d2-9e03-c8c5501c0739)
 
 
