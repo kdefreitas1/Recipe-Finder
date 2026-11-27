@@ -20,7 +20,7 @@ Recipe Finder is a console program that gives the user recipes they want as fast
 
 ## Setup and Usage
 ### Prerequisites
-- Node.js (v18 or higher)
+- Node.js (Install v18 or higher)
 ### 1. Clone the repository:
 ```bash
 git clone https://github.com/kdefreitas1/Recipe-Finder.git
