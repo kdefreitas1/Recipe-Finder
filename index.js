@@ -81,7 +81,7 @@ async function main() {
             }
         }   
 
-        if (answer == "n") {
+        if (answer.toLowerCase() == "n") {
             break;
         }
 
